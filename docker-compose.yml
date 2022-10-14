@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  poc-node:
+    image: ghcr.io/dominickbrasileiro/poc-node
+    build:
+      context: .
+      dockerfile: node/Dockerfile
+  poc-disperser:
+    image: ghcr.io/dominickbrasileiro/poc-disperser
+    build:
+      context: .
+      dockerfile: disperser/Dockerfile

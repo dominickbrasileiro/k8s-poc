@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-disperser
+  labels:
+    app: poc-disperser
+spec:
+  selector:
+    matchLabels:
+      app: poc-disperser
+  template:
+    metadata:
+      labels:
+        app: poc-disperser
+    spec:
+      containers:
+      - name: poc-disperser
+        image: ghcr.io/dominickbrasileiro/poc-disperser:latest
+        env:
+        - name: NODE_ADDRS
+          value: "poc-node1-service:32000 poc-node2-service:32000"
